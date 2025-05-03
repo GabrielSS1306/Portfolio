@@ -1,0 +1,83 @@
+In this activity, me and my friends did a code in VS Code to simulate a cash register 
+
+# Listas para armazenar os dados
+nomes = []
+codigos_barras = []
+precos = []
+
+
+def compra():
+    valor_total = 0  # Inicializa o valor total da compra
+    
+    while True:
+        item = input("\nDigite o código do produto (ou 0 para finalizar): ")
+
+        if item == "0":
+            print("\nPedido Finalizado!")
+            print(f"Valor total da compra: R$ {valor_total:.2f}")
+            break  # Sai do loop
+
+        elif item in codigos_barras:  # Verifica se o código existe
+            index_item = codigos_barras.index(item)  # Encontra o índice do código
+            valor_total += precos[index_item]  # Soma o preço do item ao total
+            print(f"{nomes[index_item]} adicionado! Total: R$ {valor_total:.2f}")
+
+        else:
+            print("Código incorreto! Tente novamente.")
+
+# Aqui ficou meio feio, mas releva
+
+def getdata():
+    produtos = [
+        "WHEY_1KG;0123456789012;120.00",
+        "BARRINHA_CEREAL;1234567890123;5.00",
+        "OVOS_30;9876543210987;40.00",
+        "ARROZ_5KG;4567891234567;18.00",
+        "LEITE_INTEGRAL_1L;2345678901234;7.00",
+        "AZEITE_1L;6543210987654;25.00",
+        "FEIJAO_CARIOCA_1KG;8765432109876;14.00",
+        "CAFE_500G;3216549876543;18.00",
+        "ACUCAR_CRISTAL_1KG;4321098765432;16.00",
+        "BISCOITO_MAIZENA_500G;5678901234567;8.00",
+        "TAPIOCA_500G;6789012345678;12.00",
+        "CREATINA_500G;7890123456789;90.00",
+        "PAO_DE_FORMA_INTEGRAL_500G;8901234567890;10.00",
+        "IOGURTE_NATURAL_170G;3456789012345;4.00",
+        "DETERGENTE_LIQUIDO_500ML;5671238901234;3.50",
+        "SABONETE_BARRA_75G;6782349012345;3.00",
+        "PASTA_DE_DENTE_100ML;7893450123456;2.50",
+        "SUCO_DE_UVA_1L;8904561234567;12.00",
+        "DESODORANTE_AEROSOL_250ML;1236547890123;6.50",
+        "REQUEIJAO_250ML;2347658901234;4.69"
+    ]
+    
+    global nomes, codigos_barras, precos
+    
+    for produto in produtos:
+        partes = produto.split(";")
+        nomes.append(partes[0])
+        codigos_barras.append(partes[1])
+        precos.append(float(partes[2]))
+
+
+# Menu principal
+
+getdata()
+
+while True:
+    print("\n1 - Nova Compra")
+    print("2 - Finalizar Sistema")
+    
+    try:
+        menu = int(input("Escolha uma opção: "))  # Converte a entrada para número
+
+        if menu == 1:
+            compra()
+        elif menu == 2:
+            print("Sistema finalizado.")
+            break  # Sai do loop e encerra o programa
+        else:
+            print("Opção inválida! Escolha 1 ou 2.")
+    
+    except ValueError:
+        print("Entrada inválida! Digite um número válido.")

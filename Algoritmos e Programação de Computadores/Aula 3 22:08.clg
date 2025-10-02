@@ -1,0 +1,31 @@
+algoritmo semNome;
+// Síntese
+//  Objetivo:  
+//  Entrada :
+//  Saída   :
+
+
+principal
+	// Declarações
+
+	real n1, n2, n3, soma; 
+
+	texto nome; 
+
+	escreva("Digite seu nome completo: ");
+	leia (nome);
+
+	escreva("Digite sua primeira nota: ");
+	leia (n1);
+	escreva("Digite sua segunda nota: ");
+	leia (n2);
+	escreva("Digite sua terceira nota: ");
+	leia (n3);
+
+	soma = n1+n2+n3;
+
+	escreva("O aluno " , nome," obteve uma média de: ", soma/3::2);
+	
+	// Instruções
+
+fimPrincipal

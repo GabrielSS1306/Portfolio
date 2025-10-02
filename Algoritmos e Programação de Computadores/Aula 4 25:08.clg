@@ -1,0 +1,24 @@
+algoritmo semNome;
+// Síntese
+//  Objetivo:  
+//  Entrada :
+//  Saída   :
+
+
+principal
+	// Declarações
+
+	real a, b;
+
+	escreva ("Informe o valor de A: ");
+	leia (a);
+	escreva ("Informe o valor de B: ");
+	leia (b);
+
+	escreval ("O valor de A é igual a: ", a);
+	escreval ("O valor de B é igual a: ", b);
+	
+	escreval ("O novo valor de A é: ", b);
+	escreval ("O novo valor de B é: ", a);
+
+fimPrincipal
